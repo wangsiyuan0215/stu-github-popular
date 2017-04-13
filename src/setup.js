@@ -2,56 +2,33 @@
  * Created by wangsiyuan on 4/12/17.
  */
 import React from 'react';
-import {
-    Text, View,
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import { default as thunk } from 'redux-thunk';
+import { default as rootReducer } from './reducers';
 
-    /* StyleSheet */
-    StyleSheet,
-} from 'react-native';
+import { default as Main } from './pages/main';
+
+const store = createStore(
+    // rootReducer,
+    applyMiddleware(thunk)
+);
 
 const setup = () => {
 
     console.disableYellowBox = true;
 
-    class githubPopular extends React.Component {
+    class root extends React.Component {
         render() {
             return (
-                <View style={styles.container}>
-                    <Text style={styles.welcome}>
-                        Welcome to githubPopular!
-                    </Text>
-                    <Text style={styles.instructions}>
-                        To get started, edit index.ios.js
-                    </Text>
-                    <Text style={styles.instructions}>
-                        Press Cmd+R to reload,{'\n'}
-                        Cmd+D or shake for dev menu
-                    </Text>
-                </View>
+                <Provider store={store}>
+                    <Main />
+                </Provider>
             );
         }
     }
 
-    return githubPopular;
+    return root;
 };
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});
 
 export default setup;

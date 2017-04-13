@@ -10,6 +10,7 @@
 		"qs": "^6.4.0",
 		"react": "16.0.0-alpha.6",
 		"react-native": "0.43.3",
+		"react-native-scrollable-tab-view": "^0.7.4",
 		"react-redux": "^5.0.4",
 		"redux": "^3.6.0",
 		"redux-thunk": "^2.2.0"

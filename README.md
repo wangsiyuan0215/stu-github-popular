@@ -32,6 +32,7 @@ src
  |--- pages         // 模块页面
  |--- reducers      // redux 的 reducer 集合
  |--- utils         // 工具
+ |--- languages     // 语言包
  |--- setup.js      // react-native 的 统一入口根组件
 ```
 *to be continued...*
