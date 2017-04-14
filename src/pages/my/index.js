@@ -12,7 +12,7 @@ import {
 } from '../../components';
 import { default as commonStyle } from '../../assets/styles/common';
 
-class Index extends React.Component {
+class Index extends React.PureComponent {
 
     constructor(props) {
         super(props);

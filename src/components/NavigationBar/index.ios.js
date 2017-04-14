@@ -12,7 +12,7 @@ import { default as NavigationItem } from './NavigationItem';
 
 const noop = () => {};
 
-class Index extends React.Component {
+class Index extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
