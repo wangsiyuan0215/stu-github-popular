@@ -22,18 +22,18 @@
 基本的结构如下：
 ```
 src
- |--- actions       // redux 的 action 集合
- |--- assets        // 静态资源
-        |--- images
+ |--- actions               // redux 的 action 集合
+ |--- assets                // 静态资源
+        |--- images         // 图片包
         |--- styles
-               |--- common
- |--- components    // 公共组件
- |--- config        // 配置文件和静态变量
- |--- pages         // 模块页面
- |--- reducers      // redux 的 reducer 集合
- |--- utils         // 工具
- |--- languages     // 语言包
- |--- setup.js      // react-native 的 统一入口根组件
+               |--- common  // 公共样式
+ |--- components            // 公共组件
+ |--- config                // 配置文件和静态变量
+ |--- languages             // 语言包
+ |--- pages                 // 模块页面
+ |--- reducers              // redux 的 reducer 集合
+ |--- utils                 // 工具
+ |--- setup.js              // react-native 的 统一入口根组件
 ```
 *to be continued...*
 

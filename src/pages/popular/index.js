@@ -3,7 +3,8 @@
  */
 import React from 'react';
 import {
-    View, Text,
+    View, Text, Image,
+    TouchableOpacity,
     StatusBar,
     StyleSheet
 } from 'react-native';
@@ -12,6 +13,8 @@ import { HeaderBar } from '../../components';
 import { default as commonStyle } from '../../assets/styles/common';
 
 import { default as PopularList } from './PopularList';
+
+import { default as Search } from '../search';
 
 const _fakeData_react = [
     {
@@ -57,6 +60,26 @@ class Index extends React.PureComponent {
         super(props);
     }
 
+    _renderRight = () => {
+        return (
+            <View style={styles.headerRightBox}>
+                <TouchableOpacity
+                    style={styles.headerRightButton}
+                    onPress={this.toSearch()}>
+
+                    <Image source={require("../../assets/images/search.png")}
+                           style={styles.headerRightImg}/>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.headerRightButton} >
+
+                    <Image source={require("../../assets/images/menu.png")}
+                           style={styles.headerRightImg}/>
+                </TouchableOpacity>
+            </View>
+        );
+    }
+
     _renderTabBar = () => {
         return () => {
             return (
@@ -70,6 +93,15 @@ class Index extends React.PureComponent {
         };
     };
 
+    toSearch = () => {
+        return () => {
+            this.props.navigator.push({
+                name: 'Search',
+                component: Search
+            });
+        };
+    };
+
     render() {
         return (
             <View style={styles.container}>
@@ -77,7 +109,8 @@ class Index extends React.PureComponent {
                 <HeaderBar
                     style={styles.header}
                     renderLeft={false}
-                    renderCenter={"Popular"} />
+                    renderCenter={"Popular"}
+                    renderRight={this._renderRight()}/>
 
                 <ScrollableTabView
                     initialPage={0}
@@ -106,6 +139,28 @@ const styles = StyleSheet.create({
         height: 70,
         backgroundColor: '#000'
     }),
+    headerRightBox: {
+        position: 'absolute',
+        top: 20,
+        right: 0,
+        bottom: 0,
+        width: 80,
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'stretch'
+    },
+    headerRightButton: {
+        flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: 10
+    },
+    headerRightImg: {
+        width: 20,
+        height: 20,
+        resizeMode: 'contain',
+    },
     scrollableTabBar: {
         height: 36,
         backgroundColor: '#000'

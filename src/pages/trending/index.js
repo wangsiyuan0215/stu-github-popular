@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import {
-    View, Text,
+    View, Text, StatusBar,
     StyleSheet
 } from 'react-native';
 import { default as ScrollableTabView, ScrollableTabBar } from 'react-native-scrollable-tab-view';
@@ -32,6 +32,7 @@ class Index extends React.PureComponent {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar barStyle="light-content"/>
                 <HeaderBar
                     style={styles.header}
                     renderLeft={false}

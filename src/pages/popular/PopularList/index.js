@@ -52,6 +52,13 @@ class PopularList extends React.PureComponent {
         console.log('refreshing...');
         this.setState({
             isRefreshing: true
+        }, () => {
+            // 模拟刷新延时操作
+            setTimeout( () => {
+                this.setState({
+                    isRefreshing: false
+                })
+            }, 2000)
         });
     }
 
